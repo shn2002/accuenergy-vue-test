@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.7",
+    "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
+    "vue3-google-map": "^0.15.0",
     "vuex": "^4.1.0"
   },
   "devDependencies": {

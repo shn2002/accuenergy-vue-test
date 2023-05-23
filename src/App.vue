@@ -4,6 +4,7 @@
   <SearchComponent/>
   <MapComponent/>
   <TableComponent/>
+  <RecentSearchCityComponent/>
 </template>
 
 <script>
@@ -11,6 +12,7 @@ import LocationComponent from './components/LocationComponent.vue'
 import SearchComponent from './components/SearchComponent.vue'
 import TableComponent from './components/TableComponent.vue'
 import MapComponent from './components/MapComponent.vue'
+import RecentSearchCityComponent from './components/RecentSearchCityComponent.vue'
 
 export default {
   name: 'App',
@@ -19,7 +21,7 @@ export default {
     SearchComponent,
     MapComponent,
     TableComponent,
-    
+    RecentSearchCityComponent, 
   }
 }
 </script>

@@ -14,7 +14,6 @@
 import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
-  name: 'ButtonTestA',
   computed: {
     ...mapState(['showMsg', 'msg'])
   },

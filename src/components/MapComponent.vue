@@ -2,47 +2,39 @@
   <div class="row justify-content-center">
     <div class="py-3 px-3 "></div>
     <div class="col-8 border border-primary py-3 px-3">
-      <h6>Question 3: Display the location on a map and add a marker to each searched location every time the location changes.</h6><br/>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Location's name" aria-label="Recipient's username"
-          aria-describedby="button-addon2">
-        <button class="btn btn-primary" type="button" >Search</button>
-      </div>
+      <h6>Question 3: Display the location on a map and add a marker to each searched location every time the location
+        changes.</h6><br />
+      <GoogleMap :api-key="apiKey" style="width: 100%; height: 500px" :center="center" :zoom="10">
+          <Marker v-for="(marker, index) in getMarkers" :key="index"
+          :options="marker"></Marker>  
+      </GoogleMap>
+
     </div>
   </div>
 </template>
 <script>
-//import { googleConfig } from '../config.js'
-import { mapState, mapMutations, mapActions } from 'vuex';
 
-export default {
-  name: 'ButtonTestA',
+import { mapGetters } from 'vuex'
+import { defineComponent } from "vue";
+import { GoogleMap, Marker } from "vue3-google-map";
+import { googleConfig } from '../config.js'
+
+export default defineComponent({
   computed: {
-    ...mapState(['showMsg', 'msg'])
+    ...mapGetters(['getMarkers']),
   },
-  methods: {
-    myFunction() {
-      const location = window.navigator.geolocation
-      this.initState()
-      // console.log(googleConfig.apiKey)
-      if (location) {
-        location.getCurrentPosition(
-          function (pos) {
-            const lat = pos.coords.latitude
-            const long = pos.coords.longitude
-            const msg = 'Latitude: ' + lat.toString() + ' Longitude: ' + long.toString()
-            this.submitChange(msg)
-          }.bind(this),
-          function (err) {
-            this.submitChange(err.message)
-          }.bind(this),
-        )
-      }
-    },
-    ...mapMutations(['changeMsgFlag', 'setMsg', 'initState']),
-    ...mapActions(['submitChange'])
+  components: { GoogleMap, Marker },
+  setup() {
+    const center = { lat: 43.653226, lng: -79.3831843 };
+    return { center };
+  },
+  data() {
+    return {
+      apiKey: googleConfig.apiKey,
+    }
   }
-}
+
+})
 
 </script>
 

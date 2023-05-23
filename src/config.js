@@ -1,5 +1,5 @@
 const googleConfig = {
-    apiKey : 'aaaaaa'
+    apiKey : ''
     }
 
 export { googleConfig };

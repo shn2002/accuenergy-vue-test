@@ -19,7 +19,6 @@
 import { mapState, mapMutations } from 'vuex';
 
 export default {
-  name: 'ButtonTestA',
   data() {
     return {
       inputValue: ''

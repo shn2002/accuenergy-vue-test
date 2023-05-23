@@ -12,9 +12,13 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>First Name</th>
+                        <th>CheckBox</th>
                         <th>City</th>
-                        <th>Status</th>
+                        <th>Long</th>
+                        <th>Lat</th>
+                        <th>timeZoneId</th>
+                        <th>localTime</th>
+                        <th>hasGeoCode</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,7 +26,12 @@
                         <td><input class="form-check-input" type="checkbox" :checked="item.isChecked" 
                                 @change="updateCheckedStatusHandler($event, item)"></td>
                         <td>{{ item.name }}</td>
-                        <td>{{ item.isChecked ? 'Checked' : 'Unchecked' }}</td>
+                        <td>{{ item.long }}</td>
+                        <td>{{ item.lat }}</td>
+                        <td>{{ item.timeZoneId }}</td>
+                        <td>{{ item.localTime }}</td>
+                        <td>{{ item.hasGeoCode }}</td>
+                        <!-- <td>{{ item.isChecked ? 'Checked' : 'Unchecked' }}</td> -->
                     </tr>
                 </tbody>
             </table>
@@ -64,7 +73,6 @@
 import { mapState, mapMutations, mapGetters } from 'vuex';
 
 export default {
-    name: 'ButtonTestA',
     computed: {
         ...mapGetters(['cityPagination', 'totalPageCount']),
         ...mapState(['currentPageIndex'])
